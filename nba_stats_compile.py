@@ -10,7 +10,7 @@ def remove_html_tags(data):
     return p.sub('', data)
 
 
-for year in range(2011, 2013): #2005 (league expanded to 30 teams) through 2012
+for year in range(2005, 2013): #2005 (league expanded to 30 teams) through 2012
 	year_file = open( ''.join([str(year), "_data.csv"]),'w') 
 
 
@@ -38,16 +38,22 @@ for year in range(2011, 2013): #2005 (league expanded to 30 teams) through 2012
 		elems = soup.findAll('td')	
 		for i in range(0, len(elems) - 1):
 			if i % 35 == 0:
-				year_file.write( ''.join([team, "; "]))
+				year_file.write( ''.join([str(teams.index(team)+1), "; "]))
 				
 			elem = remove_html_tags(elems[i].renderContents())
 			elem = elem.replace('-', '')		
 			if( elem == '' or elem == ' '):
-				elem = 'HOME'
+				elem = '1' #HOME
 			elif( elem == '@' ):
-				elem = 'AWAY'
+				elem = '0' #AWAY
+			elif( i % 35 == 4 ):
+				elem = teams.index(elem)
+			elif( elem == 'L'):
+				elem = 0 #LOSS
+			elif( elem == 'W'):
+				elem = 1 #WIN
 			if i % 35 != 1:
-				year_file.write( ''.join([elem, "; "]) )
+				year_file.write( ''.join([str(elem), "; "]) )
 			if i % 35 == 34:
 				year_file.write( '\n' )
 		year_file.write( '\n' )
