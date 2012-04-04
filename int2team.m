@@ -1,0 +1,6 @@
+%int2team converts integer to 3-letter team code
+function teamname = int2team(int)
+    teams = {'ATL' 'BOS' 'CHA' 'CHI' 'CLE' 'DAL' 'DEN' 'DET' 'GSW' 'HOU'...
+        'IND' 'LAC' 'LAL' 'MEM' 'MIA' 'MIL' 'MIN' 'NJN' 'NOH' 'NYK'...
+        'OKC' 'ORL' 'PHI' 'PHO' 'POR' 'SAC' 'SAS' 'TOR' 'UTA' 'WAS'};
+    teamname = teams(int);
