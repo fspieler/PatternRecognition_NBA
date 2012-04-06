@@ -47,7 +47,7 @@ for year in range(2005, 2013): #2005 (league expanded to 30 teams) through 2012
 			elif( elem == '@' ):
 				elem = '0' #AWAY
 			elif( i % 35 == 4 ):
-				elem = teams.index(elem)
+				elem = teams.index(elem)+1
 			elif( elem == 'L'):
 				elem = 0 #LOSS
 			elif( elem == 'W'):
