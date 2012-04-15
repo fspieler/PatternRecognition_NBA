@@ -1,6 +1,7 @@
 function features = norm_points_feature_extraction( raw_data, years )
     [~, num_years] = size(years);
-    weights = [2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1];
+    
+weights = [2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1];
     [~, num_weights] = size(weights);
     weights = weights/sum(weights); %normalize
     
@@ -39,4 +40,3 @@ function features = norm_points_feature_extraction( raw_data, years )
 
         end
     end
-        
